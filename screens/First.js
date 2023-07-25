@@ -48,7 +48,7 @@ const First = ({navigation}) => {
 
 
 /*LINKSSS*/
-const supportedURL = 'https://en.wikipedia.org/wiki/Mars';
+const supportedURL = 'https://en.wikipedia.org/wiki/Sun';
 const OpenURLButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
@@ -76,96 +76,6 @@ const OpenURLButton = ({ url, children }) => {
 
 
 /* ANTIDRASEIS PLANITWNN*/
-
-  const earthPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      earthPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(earthPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const venusPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      venusPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(venusPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const moonPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      moonPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(moonPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const mercuryPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      mercuryPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(mercuryPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const marsPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      marsPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(marsPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const jupiterPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      jupiterPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(jupiterPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const saturnPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      saturnPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(saturnPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const uranusPanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      uranusPan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(uranusPan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
-
-  const neptunePanResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (_, gestureState) => {
-      neptunePan.setValue({ x: gestureState.dx, y: gestureState.dy });
-    },
-    onPanResponderRelease: () => {
-      Animated.spring(neptunePan, { toValue: { x: 0, y: 0 }, useNativeDriver: true }).start();
-    },
-  });
 
 
 //STARRRR////
@@ -236,7 +146,7 @@ const [show, setShow ] = useState(false);
         <Text style={[styles.header, styles.paragraph]}>The solarious systemious</Text>
         
         
-        <Button onPress={() => setShow(true)} title="Learn More" />
+        <Button onPress={() => setShow(true)} title="Learn about the SUN" />
 
         
        
@@ -257,7 +167,7 @@ const [show, setShow ] = useState(false);
 >
   <ScrollView contentContainerStyle={{ padding: 16 }}>
     <Image source={mars} style={styles.Openbox} />
-    <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Mars</Text>
+    <Text style={{ fontSize: 22, fontWeight: 'bold' }}>The sun</Text>
     <View
       style={{
         backgroundColor: '#038cfc',
@@ -268,15 +178,12 @@ const [show, setShow ] = useState(false);
       }}
     >
       <Text style={{ color: 'white', fontSize: 15 }}>
-        Mars is the fourth planet and the furthest terrestrial planet from the Sun. The reddish color of its surface is
-        due to finely grained iron(III) oxide dust in the soil, giving it the nickname "the Red Planet".[20][21] There
-        is a sharp contrast between the two Martian hemispheres: the northern hemisphere is on average flatter and
-        smoother than the southern hemisphere. The planet's two poles are covered by water and carbon dioxide ice caps.
-        Surrounding the Martian surface is a dynamic thin atmosphere (1% of Earth's surface pressure), made primarily
-        of carbon dioxide. Mars has two irregularly shaped natural satellites, Phobos and Deimos.
+      The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma,[18][19] heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this energy mainly as light, ultraviolet, and infrared radiation, and is the most important source of energy for life on Earth.
+
+The Sun's radius is about 695,000 kilometers (432,000 miles), or 109 times that of Earth. Its mass is about 330,000 times that of Earth, comprising about 99.86% of the total mass of the Solar System.[20] Roughly three-quarters of the Sun's mass consists of hydrogen (~73%); the rest is mostly helium (~25%), with much smaller quantities of heavier elements, including oxygen, carbon, neon, and iron.
       </Text>
     </View>
-    <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Real images of the planet</Text>
+    <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Real images of the star</Text>
 
     <View style={{ paddingVertical: 5 }}>
       <Images />
@@ -293,111 +200,14 @@ const [show, setShow ] = useState(false);
         <Animated.Image
   source={comet}
   style={[
-    styles.star,
+    styles.comet,
     { opacity: tailOpacity, transform: [{ translateX: cometX }, { translateY: cometY }] },
   ]}
    />
         
 
       
-        <Animated.Image
-        
-        {...mercuryPanResponder.panHandlers}
-        source={mercury}
-        style={[
-          styles.box,
-          {
-            transform: [{ translateX: mercuryPan.x }, { translateY: mercuryPan.y }],
-          },
-        ]}
-      />
-      <Animated.Image
-          {...venusPanResponder.panHandlers}
-          source={venus}
-          style={[
-            styles.box,
-            {
-              transform: [{ translateX: venusPan.x }, { translateY: venusPan.y }],
-            },
-          ]}
-        />
-
-      <Animated.Image
-      
-        {...moonPanResponder.panHandlers}
-        source={moon}
-        style={[
-          styles.box,
-          {
-            transform: [{ translateX: moonPan.x }, { translateY: moonPan.y }],
-          },
-        ]}
-      />
-        <Animated.Image
-          {...earthPanResponder.panHandlers}
-          source={earth}
-          style={[
-            styles.box,
-            {
-              transform: [{ translateX: earthPan.x }, { translateY: earthPan.y }],
-            },
-          ]}
-        />
-        
-      
-      
-      <Animated.Image
-        {...marsPanResponder.panHandlers}
-        source={mars}
-        style={[
-          styles.box,
-          {
-            transform: [{ translateX: marsPan.x }, { translateY: marsPan.y }],
-          },
-        ]}
-      />
-
-     <Animated.Image
-        {...jupiterPanResponder.panHandlers}
-        source={jupiter}
-        style={[
-          styles.box,
-          {
-            transform: [{ translateX: jupiterPan.x }, { translateY: jupiterPan.y }],
-          },
-        ]}
-      />
-       <Animated.Image
-        {...saturnPanResponder.panHandlers}
-        source={saturn}
-        style={[
-          styles.box,
-          {
-            transform: [{ translateX: saturnPan.x }, { translateY: saturnPan.y }],
-          },
-        ]}
-      />
-
-     <Animated.Image
-        {...uranusPanResponder.panHandlers}
-        source={uranus}
-        style={[
-          styles.box,
-          {
-            transform: [{ translateX: uranusPan.x }, { translateY: uranusPan.y }],
-          },
-        ]}
-      />
-       <Animated.Image
-        {...neptunePanResponder.panHandlers}
-        source={neptune}
-        style={[
-          styles.box,
-          {
-            transform: [{ translateX: neptunePan.x }, { translateY: neptunePan.y }],
-          },
-        ]}
-      />
+       
       </SafeAreaView>
       
     </ImageBackground>
@@ -457,6 +267,18 @@ const styles = StyleSheet.create({
     top: '50%',
     marginLeft: -20,
     marginTop: -20,
+  },
+  comet: {
+    position: 'absolute',
+    width: 8,
+    height: 8,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: '50%',
+    top: '50%',
+    marginLeft: 20,
+    marginTop: 20,
   },
   starImage: {
     width: 30,
