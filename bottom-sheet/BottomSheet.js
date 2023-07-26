@@ -53,7 +53,7 @@ const BottomSheet = ({ show, onDismiss, enableBackdropDismiss, children }) => {
         setOpen(false);
       });
     }
-  }, [show]);
+  }, [show]); 
 
   if (!open) {
     return null;

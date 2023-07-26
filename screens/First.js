@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState, Component } from 'react';
-import { Animated, PanResponder, Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet, Image, TouchableOpacity, ImageBackground, Linking , Easing, RefreshControl,} from 'react-native';
+import { Animated, PanResponder, Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet, Image,Dimensions , TouchableOpacity, ImageBackground, Linking , Easing, RefreshControl,} from 'react-native';
 import earth from '../assets/planet-earth.png';
 import sun from '../assets/sun.png';
 import moon from '../assets/moon.png';
-import space from '../assets/Hubble_ultra_deep_field.jpg';
+import space from '../assets/03.ClusteredGalaxies-434410f.jpg'
 import venus from '../assets/venus.png';
 import mercury from '../assets/mercury.png';
 import mars from '../assets/mars.png';
@@ -14,8 +14,10 @@ import neptune from '../assets/neptune.png';
 import comet from '../assets/comet.png';
 import BottomSheet from '../bottom-sheet/BottomSheet';
 import { ScrollView } from 'react-native-gesture-handler';
-import Images from '../components/Images'
 import Circle from '../components/Circle';
+
+import image from '../assets/sun-blasts-a-m66-flare.jpg';
+import image1 from '../assets/images.jpg';
 
 
 
@@ -28,19 +30,10 @@ import Circle from '../components/Circle';
 //////
 
 
-const First = ({navigation}) => {
-  const earthPan = useRef(new Animated.ValueXY()).current;
-  const venusPan = useRef(new Animated.ValueXY()).current;
-  const moonPan = useRef(new Animated.ValueXY()).current;
-  const mercuryPan = useRef(new Animated.ValueXY()).current;
-  const marsPan = useRef(new Animated.ValueXY()).current;
-  const jupiterPan = useRef(new Animated.ValueXY()).current;
-  const saturnPan = useRef(new Animated.ValueXY()).current;
-  const uranusPan = useRef(new Animated.ValueXY()).current;
-  const neptunePan = useRef(new Animated.ValueXY()).current;
+const First = () => {
+ 
 
-  const cometX = useRef(new Animated.Value(0)).current;
-  const cometY = useRef(new Animated.Value(0)).current;
+  
 
 
   
@@ -79,57 +72,11 @@ const OpenURLButton = ({ url, children }) => {
 
 
 //STARRRR////
-const tailOpacity = useRef(new Animated.Value(0)).current;
 
-useEffect(() => {
-  const cometAnimation = Animated.loop(
-    Animated.sequence([
-      Animated.timing(cometX, {
-        toValue: 100, // Adjust this value to change the horizontal movement
-        duration: 8000,
-        useNativeDriver: true,
-      }),
-      Animated.spring(cometY, {
-        toValue: 100,
-        duration: 5000,
-        useNativeDriver: true,
-      }),
-      Animated.timing(cometX, {
-        toValue: 0,
-        duration: 8000,
-        useNativeDriver: true,
-      }),
-      Animated.spring(cometY, {
-        toValue: 0,
-        
-        useNativeDriver: true,
-      }),
-    ])
-  );
+
+
+ 
   
-  const tailAnimation = Animated.loop(
-    Animated.sequence([
-      Animated.timing(tailOpacity, {
-        toValue: 1,
-        duration: 1500,
-        useNativeDriver: true,
-      }),
-      Animated.timing(tailOpacity, {
-        toValue: 0,
-        duration: 1500,
-        useNativeDriver: true,
-      }),
-    ])
-  );
-
-  cometAnimation.start();
-  tailAnimation.start();
-
-  return () => {
-    cometAnimation.stop();
-    tailAnimation.stop();
-  };
-}, [cometX, tailOpacity]);
 
 
 
@@ -166,7 +113,7 @@ const [show, setShow ] = useState(false);
   enableBackdropDismiss
 >
   <ScrollView contentContainerStyle={{ padding: 16 }}>
-    <Image source={mars} style={styles.Openbox} />
+    <Image source={sun} style={styles.Openbox} />
     <Text style={{ fontSize: 22, fontWeight: 'bold' }}>The sun</Text>
     <View
       style={{
@@ -178,32 +125,38 @@ const [show, setShow ] = useState(false);
       }}
     >
       <Text style={{ color: 'white', fontSize: 15 }}>
-      The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma,[18][19] heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this energy mainly as light, ultraviolet, and infrared radiation, and is the most important source of energy for life on Earth.
+      The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma, heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this energy mainly as light, ultraviolet, and infrared radiation, and is the most important source of energy for life on Earth.
 
-The Sun's radius is about 695,000 kilometers (432,000 miles), or 109 times that of Earth. Its mass is about 330,000 times that of Earth, comprising about 99.86% of the total mass of the Solar System.[20] Roughly three-quarters of the Sun's mass consists of hydrogen (~73%); the rest is mostly helium (~25%), with much smaller quantities of heavier elements, including oxygen, carbon, neon, and iron.
+The Sun's radius is about 695,000 kilometers (432,000 miles), or 109 times that of Earth. Its mass is about 330,000 times that of Earth, comprising about 99.86% of the total mass of the Solar System. Roughly three-quarters of the Sun's mass consists of hydrogen (~73%); the rest is mostly helium (~25%), with much smaller quantities of heavier elements, including oxygen, carbon, neon, and iron.
       </Text>
     </View>
     <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Real images of the star</Text>
 
     <View style={{ paddingVertical: 5 }}>
-      <Images />
+    <ScrollView
+        horizontal
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+        }} 
+        showsHorizontalScrollIndicator={false}
+        className="pt-4"
+      >
+        <TouchableOpacity style={styles.imageContainer}>
+          <Image source={image} style={styles.image} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.imageContainer}>
+          <Image source={image1} style={styles.image} />
+        </TouchableOpacity>
+      </ScrollView>
     </View>
-    <View style={{ paddingVertical: 5 }}>
-      <Images />
-    </View>
+    
 
     <View style={{ marginTop: 10 }}>
       <OpenURLButton url={supportedURL}>Don't believe me?</OpenURLButton>
     </View>
   </ScrollView>
 </BottomSheet>
-        <Animated.Image
-  source={comet}
-  style={[
-    styles.comet,
-    { opacity: tailOpacity, transform: [{ translateX: cometX }, { translateY: cometY }] },
-  ]}
-   />
+
         
 
       
@@ -220,11 +173,13 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
+   
   },
   header: {
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
+    marginTop: 40,
   },
   paragraph: {
     color: 'white',
@@ -268,18 +223,7 @@ const styles = StyleSheet.create({
     marginLeft: -20,
     marginTop: -20,
   },
-  comet: {
-    position: 'absolute',
-    width: 8,
-    height: 8,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    left: '50%',
-    top: '50%',
-    marginLeft: 20,
-    marginTop: 20,
-  },
+  
   starImage: {
     width: 30,
     height: 30,
@@ -297,6 +241,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  imageContainer: {
+    paddingHorizontal: 5,
+  },
+  image: {
+    height: 250,
+    width: 300,
   },
  
 });

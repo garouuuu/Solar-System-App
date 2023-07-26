@@ -22,7 +22,7 @@ export default function App() {
       <Stack.Screen name='First' component={First} options={{headerShown: false}}  />
         
       </Stack.Navigator>
-    </NavigationContainer> 
+    </NavigationContainer>  
     </PaperProvider>
    </GestureHandlerRootView>
   );
